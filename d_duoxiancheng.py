@@ -56,7 +56,9 @@ class ParseThread(threading.Thread):
                 image_url = li.xpath('.//img[@class="lazy"]/@data-src')[0]
                 print(image_url)
                 name = li.xpath('.//div[@class="joke-list-name"]/a[1]/@title')[0]
-                content = li.xpath('.//div[@class="cont-list-main"]/div/text()')[0]
+                # content = li.xpath('.//div[@class="cont-list-main"]/div/text()')[0]
+                content = li.xpath('string(.//div[@class="cont-list-main"]/div/)')[0]
+                print(content)
             except Exception as e:
                 image_url=None
                 name='匿名用户'
